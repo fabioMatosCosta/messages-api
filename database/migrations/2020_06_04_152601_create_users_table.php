@@ -14,10 +14,10 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('username');
             $table->string('email');
-            $table->array('messages');
+            $table->json('messages');
             $table->timestamps();
         });
     }
@@ -32,3 +32,10 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
+
+// class Product extends Model
+// {
+//     protected $casts = [
+//         'messages' => 'array'
+//     ];
