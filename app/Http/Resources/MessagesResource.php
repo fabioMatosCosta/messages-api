@@ -14,6 +14,10 @@ class MessagesResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'sender_id' => $this->sender_id,
+            'recipient_id' => $this->recipient_id,
+            'body' => $this->body
+        ];
     }
 }
