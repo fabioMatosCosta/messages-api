@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/messages', function(){
-
-});
+Route::get('/messages/{user}', 'UserController@show');
