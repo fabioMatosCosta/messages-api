@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/messages/{user}', 'UserController@show');
+// Route::get('/messages/{user}', 'UserController@show');
+
+// Route::get('/messages', 'MessagesController@show');
+
+// Route::get('/messages/allusers', 'UserController@index');
+
+Route::apiResource('/messages', 'MessagesController');
