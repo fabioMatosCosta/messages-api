@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 use App\Messages;
 use App\Http\Resources\MessagesResource;
 use App\Http\Resources\MessagesResourceCollection;
+use App\Users;
 
 class MessagesController extends Controller
 {
-    public function show($user)
+    public function show(Messages $user)
     {   
-        $messages = Messages::where('recipient_id', $user)
+        $messages = Messages::where('recipient_id', $user->id)
             ->join('users', 'messages.sender_id', '=', 'users.id')
             ->get();
-
-        return response()->json($messages, 200);
+        
+        // return response()->json($messages, 200);
+        return new MessagesResource($messages);
     }
 
-    public function index(Messages $user): MessagesResource
+    public function index(Messages $user)
     {
-        // return new MessagesResourceCollection(Messages::paginate());
-        // return new MessagesResource::find($user->recipient_id);
+
     }
 }
