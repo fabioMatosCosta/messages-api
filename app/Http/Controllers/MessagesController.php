@@ -28,13 +28,16 @@ class MessagesController extends Controller
             'body'            => 'required'
         ]);
 
+        $recipient_email = $request->recipient_email;
+
+        $recipient = Users::where('email', '=', $recipient_email)->firstOrFail();
+
         $newMessage = $request->all();
         $newMessage['sender_id'] = $user->id;
+        $newMessage['recipient_id'] = $recipient->id;
         
-        dd($newMessage);
+        $message = Messages::create($newMessage);
 
-        // $message = Messages::create($newMessage);
-
-        // return response()->json('Message sent', 201);
+        return response()->json('Message sent', 201);
     }
 }
