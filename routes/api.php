@@ -20,3 +20,4 @@ Route::get('/messages/{user}/info', 'UserController@show');
 
 Route::get('/messages/allusers', 'UserController@index');
 
+Route::post('/messages/{user}/send', 'MessagesController@store');
