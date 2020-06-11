@@ -69,12 +69,26 @@ a query string.
 
 Example = http://localhost:8000/api/messages/allusers?page=2
 
+| Name | Description |
+|------|-------------|
+| user_id | The id of the user |
+| first_name | The name of the user |
+| email | The email of the user |
+
 
 #### Get /:user_id/info
 
 http://localhost:8000/api/messages/:user_id/info
 
-Gets the user info: name and email.
+Gets the user info.
+
+Return fields:
+
+| Name | Description |
+|------|-------------|
+| user_id | The id of the user |
+| first_name | The name of the user |
+| email | The email of the user |
 
 
 #### Get /:user_id/allmessages  
@@ -89,16 +103,23 @@ Return fields:
 |------|-------------|
 | sender_id | The id of the sender user |
 | email | The email of the sender user |
-| firs_name | The name of the sender user |
+| first_name | The name of the sender user |
 | recipient_id | The id of the recipient user |
 | body | The text body of the message |
 
 
+#### Post /:user_id/send
 
+Send a message to another user.
 
+The following parameters are passed as parameters in a form-encoded body of your HTTP request.
 
-  api/messages/{user}/send
+Request parameters:
 
+| Parameter | Description |
+|-----------|-------------|
+| recipient_email (required) | The email of the recipient user |
+| body (required) | The text body of the message |
 
 ### Testing
 
