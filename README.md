@@ -1,4 +1,5 @@
 # Messages API
+
 ## Getting started
 
 Clone the repository
@@ -11,33 +12,53 @@ Switch to the repo folder
 
 Install all the dependencies using composer
 
-'composer install'
+`composer install`
 
 Copy the example env file and make the required configuration changes in the .env file
 
-'cp .env.example .env'
+`cp .env.example .env`
 
-Create a database.sql file in the database folder and run the database migrations (Set the database connection in .env before migrating)
+Create a database.sqlite file in the database folder and run the database migrations (Set the database connection in .env before migrating)
 
-'php artisan migrate'
+`php artisan migrate`
 
 Start the local development server
 
-php artisan serve
+`php artisan serve`
+
 You can now access the server at http://localhost:8000
 
-TL;DR command list
 
-git clone git@github.com:gothinkster/laravel-realworld-example-app.git
-cd laravel-realworld-example-app
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan jwt:generate 
-Make sure you set the correct database connection information before running the migrations Environment variables
+## Routes
 
-php artisan migrate
-php artisan serve
+#### Root end point :
+
+http://localhost:8000/api/messages/
+
+#### Authentication :
+
+Since it was not necessary for this assignment, I assumed that the user is logged in and authenticated.
+
+#### Get users:
+
+http://localhost:8000/api/messages/allusers 
+
+This route returns a list of all users name and email in the database.
+It is paginated, returns 15 users per page, and you can access other pages using the `?page` parameter, which is passed as 
+a query string.
+example = http://localhost:8000/api/messages/allusers?page=2
+
+
+#### Get user info
+
+http://localhost:8000/api/messages/{user}/info
+
+This route returns the user info: name and email.
+
+  
+  api/messages/{user}/allmessages  
+  api/messages/{user}/info   
+  api/messages/{user}/send
 
 
 ## About Laravel
