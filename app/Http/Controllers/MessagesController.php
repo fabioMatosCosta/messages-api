@@ -10,15 +10,14 @@ use App\Users;
 
 class MessagesController extends Controller
 {
-    public function show(Messages $user): MessagesResourceCollection
+    public function show(Messages $user)
     {   
         $messages = Messages::where('recipient_id', $user->id)
-            // ->orderBy('created_at', 'desc')
             ->join('users', 'messages.sender_id', '=', 'users.id')
             ->select('sender_id', 'recipient_id', 'body', 'email', 'first_name')
             ->get();
         
-        return new MessagesResource($messages);
+        return new MessagesResource($messages); //returns messages in ascending date order
     }
 
     public function store(Users $user, Request $request)
