@@ -118,12 +118,22 @@ Request parameters:
 
 | Parameter | Description |
 |-----------|-------------|
-| recipient_email (required) | The email of the recipient user |
-| body (required) | The text body of the message |
+| recipient_email |The email of the recipient user |
+| (required) |                                     |
+| body              | The text body of the message |
+| (required) |                                     |
+
+Return response:
+
+If all goes ok, the response should be:
+
+`"Message sent"`
+
 
 ### Testing
 
 For testing the API I used Postman
 
 #### Headers
+
 
