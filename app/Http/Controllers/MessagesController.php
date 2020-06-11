@@ -10,14 +10,14 @@ use App\Users;
 
 class MessagesController extends Controller
 {
-    public function show(Messages $user)
+    public function show(Messages $user): MessagesResourceCollection
     {   
         $messages = Messages::where('recipient_id', $user->id)
+            // ->orderBy('created_at', 'desc')
             ->join('users', 'messages.sender_id', '=', 'users.id')
+            ->select('sender_id', 'recipient_id', 'body', 'email', 'first_name')
             ->get();
         
-        // return response()->json($messages, 200); maybe show the messages in chronological order/dont need to include update route
-        // make an api version 1, for future updates
         return new MessagesResource($messages);
     }
 
