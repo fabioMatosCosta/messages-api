@@ -1,5 +1,7 @@
 # Messages API
 
+For this assignment I used Laravel framework, a SQLite database and tested the API routes using Postman.
+
 ## Getting started
 
 Clone the repository
@@ -22,6 +24,15 @@ Create a database.sqlite file in the database folder and run the database migrat
 
 `php artisan migrate`
 
+Seeding the database for testing, open the database seeder for users and messages, set the property values as per your requirement 
+
+`database\seeds\UserTableSeeder.php`
+`database\seeds\MessagesTableSeeder.php`
+
+Run the database seeder and you're done
+
+`php artisan db:seed`
+
 Start the local development server
 
 `php artisan serve`
@@ -29,7 +40,10 @@ Start the local development server
 You can now access the server at http://localhost:8000
 
 
+
 ## Routes
+
+All routes return a JSON response with a data key
 
 #### Root end point :
 
@@ -39,101 +53,56 @@ http://localhost:8000/api/messages/
 
 Since it was not necessary for this assignment, I assumed that the user is logged in and authenticated.
 
-#### Get users:
+#### Parameters :
+
+`:user_id` 
+
+This parameter is the user id, I assumed the user is logged in, and we have access to his user id, it should be a number.
+
+#### Get /allusers
 
 http://localhost:8000/api/messages/allusers 
 
-This route returns a list of all users name and email in the database.
+Gets a list of all users name and email in the database.
 It is paginated, returns 15 users per page, and you can access other pages using the `?page` parameter, which is passed as 
 a query string.
-example = http://localhost:8000/api/messages/allusers?page=2
+
+Example = http://localhost:8000/api/messages/allusers?page=2
 
 
-#### Get user info
+#### Get /:user_id/info
 
-http://localhost:8000/api/messages/{user}/info
+http://localhost:8000/api/messages/:user_id/info
 
-This route returns the user info: name and email.
+Gets the user info: name and email.
 
-  
-  api/messages/{user}/allmessages  
-  api/messages/{user}/info   
+
+#### Get /:user_id/allmessages  
+
+http://localhost:8000/api/messages/:user_id/allmessages  
+
+Gets user messages.
+
+Return fields:
+
+| Name | Description |
+|------|-------------|
+| sender_id | The id of the sender user |
+| email | The email of the sender user |
+| firs_name | The name of the sender user |
+| recipient_id | The id of the recipient user |
+| body | The text body of the message |
+
+
+
+
+
   api/messages/{user}/send
 
 
-## About Laravel
+### Testing
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+For testing the API I used Postman
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Headers
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-
-### Community Sponsors
-
-<a href="https://op.gg"><img src="http://opgg-static.akamaized.net/icon/t.rectangle.png" width="150"></a>
-
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
