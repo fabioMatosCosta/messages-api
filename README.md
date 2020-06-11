@@ -110,22 +110,25 @@ Return fields:
 
 #### Post /:user_id/send
 
+http://localhost:8000/api/messages/:user_id/send
+
 Send a message to another user.
 
 The following parameters are passed as parameters in a form-encoded body of your HTTP request.
 
 Request parameters:
 
+The following parameters are required.
+
 | Parameter | Description |
 |-----------|-------------|
 | recipient_email |The email of the recipient user |
-| (required) |                                     |
-| body              | The text body of the message |
-| (required) |                                     |
+| body | The text body of the message |
+
 
 Return response:
 
-If all goes ok, the response should be:
+If all goes :+1:, the response should be:
 
 `"Message sent"`
 
@@ -136,4 +139,19 @@ For testing the API I used Postman
 
 #### Headers
 
+I used this Headers for testing, but they are not required
 
+| Key | Value |
+|-----------|-------------|
+| Accept | application/json |
+| Content-Type | application/json |
+
+#### Send a message
+
+In postman I used on the : Body - x-www-form-urlencoded ;
+to simulate a form, and used this parameters: 
+
+| Parameter | Description |
+|-----------|-------------|
+| recipient_email | The email of the recipient user |
+| body | The text body of the message |
