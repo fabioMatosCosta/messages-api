@@ -3,11 +3,11 @@
 
 Clone the repository
 
-'git clone https://github.com/fabioMatosCosta/messages-api.git'
+`git clone https://github.com/fabioMatosCosta/messages-api.git`
 
 Switch to the repo folder
 
-'cd messages-api'
+`cd messages-api`
 
 Install all the dependencies using composer
 
