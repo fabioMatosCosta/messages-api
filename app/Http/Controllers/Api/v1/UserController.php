@@ -13,11 +13,11 @@ class UserController extends Controller
 {
     public function show(Users $user): UserResource
     {
-        return new UserResource($user);
+        return new UserResource($user); // returns user with useful info in a json format
     }
 
     public function index(): UserResourceCollection
     {
-        return new UserResourceCollection(Users::paginate());
+        return new UserResourceCollection(Users::paginate()); //Used Resource collection to get a paginated list of all users in a json format
     }
 }

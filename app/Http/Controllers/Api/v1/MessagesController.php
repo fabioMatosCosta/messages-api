@@ -37,7 +37,7 @@ class MessagesController extends Controller
         $newMessage['sender_id'] = $user->id;
         $newMessage['recipient_id'] = $recipient->id;
         
-        $message = Messages::create($newMessage);
+        Messages::create($newMessage);
 
         return response()->json('Message sent', 201);
     }
