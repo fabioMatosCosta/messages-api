@@ -129,10 +129,11 @@ The following parameters are required.
 
 Return response:
 
-If all goes :+1:, the response should be:
+If the user email is in the database and all goes :+1:, the response should be:
 
 `"Message sent"`
 
+Otherwise it will throw an error
 
 ### Testing
 
