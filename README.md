@@ -106,7 +106,7 @@ Return fields:
 | first_name | The name of the sender user |
 | recipient_id | The id of the recipient user |
 | body | The text body of the message |
-| message_created_at | Date of message creation |
+| message_created_at | Date of the message |
 
 
 #### Post /:user_id/send
