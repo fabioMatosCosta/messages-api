@@ -15,10 +15,11 @@ class MessagesController extends Controller
     {   
         $messages = Messages::where('recipient_id', $user->id)
             ->join('users', 'messages.sender_id', '=', 'users.id')
-            ->select('sender_id', 'recipient_id', 'body', 'email', 'first_name')
+            ->select('sender_id', 'recipient_id', 'body', 'email', 'first_name', 'messages.created_at as message_created_at')
+            ->latest('message_created_at')
             ->get();
         
-        return new MessagesResource($messages); //returns messages in ascending date order
+        return new MessagesResource($messages);
     }
 
     public function store(Users $user, Request $request)
