@@ -95,7 +95,7 @@ Return fields:
 
 http://localhost:8000/api/v1/messages/:user_id/allmessages  
 
-Gets user messages.
+Gets user messages ordered by date, latest first.
 
 Return fields:
 
@@ -106,6 +106,7 @@ Return fields:
 | first_name | The name of the sender user |
 | recipient_id | The id of the recipient user |
 | body | The text body of the message |
+| message_created_at | Date of message creation |
 
 
 #### Post /:user_id/send
