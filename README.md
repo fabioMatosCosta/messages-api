@@ -47,7 +47,7 @@ All routes return a JSON response with a data key
 
 #### Root end point :
 
-http://localhost:8000/api/messages/
+http://localhost:8000/api/v1/messages/
 
 #### Authentication :
 
@@ -61,13 +61,13 @@ This parameter is the user id, I assumed the user is logged in, and we have acce
 
 #### Get /allusers
 
-http://localhost:8000/api/messages/allusers 
+http://localhost:8000/api/v1/messages/allusers 
 
 Gets a list of all users name and email in the database.
 It is paginated, returns 15 users per page, and you can access other pages using the `?page` parameter, which is passed as 
 a query string.
 
-Example = http://localhost:8000/api/messages/allusers?page=2
+Example = http://localhost:8000/api/v1/messages/allusers?page=2
 
 | Name | Description |
 |------|-------------|
@@ -78,7 +78,7 @@ Example = http://localhost:8000/api/messages/allusers?page=2
 
 #### Get /:user_id/info
 
-http://localhost:8000/api/messages/:user_id/info
+http://localhost:8000/api/v1/messages/:user_id/info
 
 Gets the user info.
 
@@ -93,7 +93,7 @@ Return fields:
 
 #### Get /:user_id/allmessages  
 
-http://localhost:8000/api/messages/:user_id/allmessages  
+http://localhost:8000/api/v1/messages/:user_id/allmessages  
 
 Gets user messages.
 
@@ -110,7 +110,7 @@ Return fields:
 
 #### Post /:user_id/send
 
-http://localhost:8000/api/messages/:user_id/send
+http://localhost:8000/api/v1/messages/:user_id/send
 
 Send a message to another user.
 
