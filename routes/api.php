@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/messages/{user}/allmessages', 'MessagesController@show');
+Route::prefix('v1')->group(function(){
+    Route::get('/messages/{user}/allmessages', 'Api\v1\MessagesController@show');
 
-Route::get('/messages/{user}/info', 'UserController@show');
-
-Route::get('/messages/allusers', 'UserController@index');
-
-Route::post('/messages/{user}/send', 'MessagesController@store');
+    Route::get('/messages/{user}/info', 'Api\v1\UserController@show');
+    
+    Route::get('/messages/allusers', 'Api\v1\UserController@index');
+    
+    Route::post('/messages/{user}/send', 'Api\v1\MessagesController@store');
+});

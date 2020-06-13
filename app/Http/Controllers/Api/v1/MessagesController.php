@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\v1;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Messages;
-use App\Http\Resources\MessagesResource;
-use App\Http\Resources\MessagesResourceCollection;
-use App\Users;
+
+use App\Models\Messages;
+use App\Http\Resources\v1\MessagesResource;
+use App\Models\Users;
 
 class MessagesController extends Controller
 {
