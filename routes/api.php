@@ -24,4 +24,5 @@ Route::prefix('v1')->group(function(){ // Grouped all routes with a v1 prefix so
     
     Route::post('/messages/{user}/send', 'Api\v1\MessagesController@store'); //posts a new message in the database, {user} parameter is the same as before
 
+    Route::delete('/messages/delete/{message}', 'Api\v1\MessagesController@destroy');
 });

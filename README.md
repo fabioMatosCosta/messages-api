@@ -59,6 +59,10 @@ Since it was not necessary for this assignment, I assumed that the user is logge
 
 This parameter is the user id, I assumed the user is logged in, and we have access to his user id, it should be a number.
 
+`:message_id`
+
+This parameter is the id of a message in the database, it should be a number.
+
 #### Get /allusers
 
 http://localhost:8000/api/v1/messages/allusers 
@@ -101,6 +105,7 @@ Return fields:
 
 | Name | Description |
 |------|-------------|
+| message_id | The id of the message |
 | sender_id | The id of the sender user |
 | email | The email of the sender user |
 | first_name | The name of the sender user |
@@ -134,6 +139,15 @@ If the user email is in the database and all if both parameters are filled in :+
 `"Message sent"`
 
 Otherwise it will throw an error.
+
+#### Delete /delete/:message_id
+
+http://localhost:8000/api/v1/messages/delete/:message_id
+
+Delete a message from the database.
+
+If the message doen't exist, it throws an error. If the message exists it deletes the message and returns status 204.
+
 
 ### Testing
 

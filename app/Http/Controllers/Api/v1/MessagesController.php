@@ -15,7 +15,7 @@ class MessagesController extends Controller
     {   
         $messages = Messages::where('recipient_id', $user->id)
             ->join('users', 'messages.sender_id', '=', 'users.id') //joined the sender info to the message table
-            ->select('sender_id', 'recipient_id', 'body', 'email', 'first_name', 'messages.created_at as message_created_at') // select relevant info to display, including the sent date as message_created_at
+            ->select('messages.id as message_id','sender_id', 'recipient_id', 'body', 'email', 'first_name', 'messages.created_at as message_created_at') // select relevant info to display, including the sent date as message_created_at
             ->latest('message_created_at')
             ->get();
         
@@ -41,4 +41,11 @@ class MessagesController extends Controller
 
         return response()->json('Message sent', 201);
     }
+
+    public function destroy(Messages $message)
+    {
+        $message->delete();
+        return response()->json('',204);
+    }  
+
 }
