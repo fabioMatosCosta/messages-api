@@ -44,12 +44,12 @@ You can now access the server at http://localhost:8000
 
 I started with creating two tables on the database. 
 The first table is for users, with a unique id for each user, that will be used to identify every user, an email and first name.
-The second table is for messages, with a unique id for each message, a sender and recipient id, each is used to identify who sends and receives the message, using the users table, a text body of the message, and time stamps.
+The second table is for messages, with a unique id for each message, a sender and recipient id, each is used to identify who sends and receives the message using the users table, a text body of the message, and time stamps.
 
 
 ## Routes
 
-All routes return a JSON response with a data key
+All routes return a JSON response with a data key.
 
 #### Root end point :
 
