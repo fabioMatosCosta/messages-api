@@ -2,6 +2,7 @@
 
 For this assignment I used Laravel framework, a SQLite database and tested the API routes using Postman.
 
+
 ## Getting started
 
 Clone the repository
@@ -39,6 +40,11 @@ Start the local development server
 
 You can now access the server at http://localhost:8000
 
+## Database 
+
+I started with creating two tables on the database. 
+The first table is for users, with a unique id for each user, that will be used to identify every user, an email and first name.
+The second table is for messages, with a unique id for each message, a sender and recipient id, each is used to identify who sends and receives the message, using the users table, a text body of the message, and time stamps.
 
 
 ## Routes
@@ -147,6 +153,8 @@ http://localhost:8000/api/v1/messages/delete/:message_id
 Delete a message from the database.
 
 If the message doen't exist, it throws an error. If the message exists it deletes the message and returns status 204.
+
+
 
 
 ### Testing
