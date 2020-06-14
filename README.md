@@ -151,7 +151,7 @@ If the message doen't exist, it throws an error. If the message exists it delete
 
 ### Testing
 
-For testing the API I used Postman
+For testing the API I used Postman.
 
 #### Headers
 
